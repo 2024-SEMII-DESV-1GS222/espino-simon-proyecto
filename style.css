@@ -169,6 +169,7 @@ input[type="checkbox"]:checked+.toggle-label::after {
 .grid-container div:hover {
     box-shadow: var(--box-shadow-hover);
     transform: var(--transform);
+    border-bottom: var(--border-bt);
 }
 
 .grid__ticket {
