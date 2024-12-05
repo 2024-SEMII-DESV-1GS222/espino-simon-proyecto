@@ -162,21 +162,27 @@ input[type="checkbox"]:checked+.toggle-label::after {
 .grid-container {
     width: 100%;
     height: 75vh;
-    /*quitar*/
     display: grid;
     gap: 25px;
     grid-template: calc(50% - 12.5px) calc(50% - 12.5px) / calc(35% - 16.6px) calc(27% - 16.6px) calc(38% - 16.6px);
+    flex-wrap: wrap;
 }
 
-.grid-container>div {
+.grid-container>a {
     background-color: var(--color-white);
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    cursor: pointer;
     transition: var(--transition);
+    text-decoration: none;
 }
 
-.grid-container>div:hover {
+.grid-container>a:visited {
+    color: inherit;
+}
+
+.grid-container>a:hover {
     box-shadow: var(--box-shadow-hover);
     transform: var(--transform);
     border-bottom: var(--border-bt);
@@ -203,8 +209,6 @@ input[type="checkbox"]:checked+.toggle-label::after {
 main>.grid__imgs {
     padding: 0;
     background-color: var(--color-black);
-    color: var(--color-accent);
-    font-weight: bold;
 }
 
 .grid__imgs img,
@@ -232,10 +236,12 @@ main>.grid__imgs {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: var(--color-accent);
+    font-weight: bold;
 }
 
 .grid__explore__form {
-    margin-top: 20px;
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
