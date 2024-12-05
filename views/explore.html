@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <script type="module" src="/scripts/app.js"></script>
 </head>
 
 <body>
@@ -32,66 +33,24 @@
                 </ul>
             </div>
         </nav>
-        
+
         <div class="container">
             <div class="explore__form">
-                <form class="grid__explore__form">
+                <form class="grid__explore__form" id="explore-form">
                     <div>
-                        <form>
-                            <input type="text" placeholder="Search..." name="name" />
-                            <select id="search-by">
-                                <option value="song">Song</option>
-                                <option value="artist">Artist</option>
-                                <option value="album">Album</option>
-                            </select>
-                            <button class="btn-submit" type="submit">Submit</button>
-                        </form>
+                        <input type="text" placeholder="Search..." name="query" />
+                        <select id="search-by" name="search-by">
+                            <option value="track">Track</option>
+                            <option value="artist">Artist</option>
+                            <option value="album">Album</option>
+                        </select>
+                        <button class="btn-submit btn" type="submit">Submit</button>
+
                     </div>
                 </form>
             </div>
-            
-            <div class="explore__result">
-                <div>
-                    <img src="https://i.scdn.co/image/ab67616d0000b2736cfd9a7353f98f5165ea6160" alt="Album Cover">
-                    <div>
-                        <h4>Title</h4>
-                        <p>Artist</p>
-                    </div>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Listeners</th>
-                            <th>Add</th>
-                            <th><i class="fa-regular fa-clock"></i></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Pornography</td>
-                            <td>200,190,000</td>
-                            <td><i class="fa-solid fa-heart"></i></td>
-                            <td>3:51</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Oh My Dis Side</td>
-                            <td>200,190,000</td>
-                            <td><i class="fa-solid fa-heart"></i></td>
-                            <td>3:51</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>3500</td>
-                            <td>200,190,000</td>
-                            <td><i class="fa-solid fa-heart"></i></td>
-                            <td>3:51</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <div class="explore__result" id="explore-result">
             </div>
         </div>
     </div>

@@ -22,10 +22,30 @@ const APIController = (function () {
         await _getToken();
     })();
 
-    const getArtist = async (token) => {
-        const result = await fetch(`https://api.spotify.com/artists/7Gi6gjaWy3DxyilpF1a8Is?si=ORNrGjx6QfiL2h5lD2LlDw`, {
+    const search = async (query, type) => {
+        const result = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=${type}&limit=5`, {
             method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + token }
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const data = await result.json();
+        return data;
+    };
+
+    const getArtist = async (id) => {
+        const result = await fetch(`https://api.spotify.com/v1/artists/${id}`, {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        const data = await result.json();
+        console.log(data);
+        return data;
+    }
+
+    const getSong = async (name) => {
+        const result = await fetch(`https://api.spotify.com/v1/tracks/${id}`, {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
         });
 
         const data = await result.json();
@@ -35,6 +55,7 @@ const APIController = (function () {
 
     return {
         getToken: () => token,
+        search,
         getArtist
     };
 })();

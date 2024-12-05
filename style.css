@@ -245,7 +245,7 @@ main>.grid__imgs {
     gap: 10px;
 }
 
-.grid__explore__form button {
+.btn {
     font-size: var(--font-p);
     width: fit-content;
     background-color: var(--color-accent);
@@ -282,13 +282,14 @@ main>.grid__imgs {
     background-color: var(--color-white);
     border-radius: var(--border-radius);
     padding: 20px 50px;
-    height: calc(75vh - 40px);
+    min-height: calc(75vh - 40px);
     box-shadow: var(--box-shadow);
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: var(--transition);
     gap: 25px;
+    margin-bottom: 50px;
 }
 
 .container:hover {
@@ -303,11 +304,13 @@ main>.grid__imgs {
     display: flex;
     gap: 20px;
     align-items: center;
+    margin-bottom: 20px;
 }
 
-.explore__result>div>img {
+.explore__result img {
     width: 100px;
     border-radius: var(--border-radius);
+    object-fit: cover;
 }
 
 table {

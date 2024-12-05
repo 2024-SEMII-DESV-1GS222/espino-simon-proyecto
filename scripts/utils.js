@@ -5,11 +5,10 @@ const capitalize = (name) => {
 const sanitizeName = (name) => {
     return name
         .trim()
-        .toLowerCase()
-        .replace(/[^a-z\-]/g, '');
+        .toLowerCase();
 }
 
 export {
     capitalize,
-    loopEvolutions
+    sanitizeName
 }
