@@ -1,12 +1,13 @@
 import { getAuthorizationUrl } from './login.js';
 import { APIController } from './apiController.js'
 import { sanitizeName } from './utils.js'
-import { printResultExplore } from './show.js'
+import { printResultExplore, printTicket } from './show.js'
 
 const htmlElements = {
     exploreForm: document.querySelector('#explore-form'),
     exploreResult: document.querySelector('#explore-result'),
-    btnLogin: document.querySelector('#login')
+    btnLogin: document.querySelector('#login'),
+    generateForm: document.querySelector('#generate-ticket')
 }
 
 const handlers = {
@@ -36,6 +37,16 @@ const handlers = {
     login: () => {
         const authUrl = getAuthorizationUrl();
         window.location.href = authUrl;
+    },
+    generate: async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const metric = formData.get('metric');
+        const time = formData.get('time');
+        const length = formData.get('length');
+        const data = await APIController.getTops(metric, time, length);
+        console.log(data);
+        // printTicket();
     }
 }
 
@@ -44,6 +55,8 @@ const bindEvents = () => {
         htmlElements.exploreForm.addEventListener('submit', handlers.submit);
     if (htmlElements.btnLogin)
         htmlElements.btnLogin.addEventListener('click', handlers.login);
+    if (htmlElements.generateForm)
+        htmlElements.generateForm.addEventListener('submit', handlers.generate);
 }
 
 const init = () => {

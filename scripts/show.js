@@ -38,6 +38,11 @@ const printResultExplore = (results, searchBy) => {
         .join('');
 };
 
+const printTicket = () => {
+    return results
+}
+
 export {
-    printResultExplore
+    printResultExplore,
+    printTicket
 }

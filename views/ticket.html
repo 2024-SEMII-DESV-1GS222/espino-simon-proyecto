@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap" rel="stylesheet">
     <script type="module" src="/scripts/app.js"></script>
 </head>
+
 <body>
     <div class="main-container">
         <nav class="navbar">
@@ -30,10 +32,37 @@
                 </ul>
             </div>
         </nav>
-        
-        <div class="container">
-            
+
+        <div class="container ticket-container">
+            <img src="https://i.pinimg.com/474x/27/b3/63/27b3630a3fafa382347ade5b0470de0c.jpg" alt="MyTicket">
+            <div class="ticket">
+                <!-- generar MyTicket -->
+            </div>
+            <form id="generate-ticket">
+                <div class="container">
+                    <h3>Generate MyTicket</h3>
+                    <select class="select" name="metric">
+                        <option>Metric</option>
+                        <option value="tracks">Top Tracks</option>
+                        <option value="artist">Top Artists</option>
+                    </select>
+                    <select class="select" name="time">
+                        <option>Time</option>
+                        <option value="short_term">Last Month</option>
+                        <option value="medium_term">Last 6 Months</option>
+                        <option value="long_term">Last Year</option>
+                    </select>
+                    <select class="select" name="length">
+                        <option>Top Length</option>
+                        <option value="5">Top 5</option>
+                        <option value="10">Top 10</option>
+                        <option value="15">Top 15</option>
+                    </select>
+                    <button class="btn" type="submit">Generate</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>
+
 </html>

@@ -175,6 +175,7 @@ input[type="checkbox"]:checked+.toggle-label::after {
     cursor: pointer;
     transition: var(--transition);
     text-decoration: none;
+    color: var(--color-black);
 }
 
 .grid-container>a:visited {
@@ -266,7 +267,8 @@ main>.grid__imgs {
     padding: 0 10px;
 }
 
-#search-by {
+#search-by,
+.select {
     width: 100px;
     font-size: var(--font-p);
     border: none;
@@ -350,3 +352,32 @@ tbody tr:hover {
 tr td i:hover {
     cursor: pointer;
 } */
+.ticket-container.container {
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--color-white-mr);
+    box-shadow: none;
+    transform: none;
+    align-items: flex-start;
+}
+
+.ticket-container img {
+    width: 250px;
+}
+
+.ticket-container.container .container {
+    width: 250px;
+    padding: 35px;
+    align-items: flex-start;
+    gap: 15px;
+    min-height: fit-content;
+}
+
+.ticket-container.container .container select {
+    margin: 0;
+    width: 90%;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-gray);
+    border-radius: 0;
+    padding: 0;
+}
