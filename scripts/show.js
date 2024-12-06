@@ -1,30 +1,23 @@
 const createTrackHTML = (item, index) => `
-    <div>
+    <div class="card-item">
         <img src="${item.album?.images[0]?.url || 'https://via.placeholder.com/100'}" alt="Track Cover">
-        <div>
-            <h4>${index + 1}. ${item.name}</h4>
-            <p>${item.artists[0]?.name || 'Artista desconocido'}</p>
-            <button class="btn">Ver más</button>
-        </div>
+        <h4>${index + 1}. ${item.name}</h4>
+        <p>${item.artists[0]?.name || 'Artista desconocido'}</p>
     </div>
 `;
 
 const createArtistHTML = (item, index) => `
-    <div>
+    <div class="card-item">
         <img src="${item.images[0]?.url || 'https://via.placeholder.com/100'}" alt="${item.name}">
-        <div>
-            <h4>${index + 1}. ${item.name}</h4>
-        </div>
+        <h4>${index + 1}. ${item.name}</h4>
     </div>
 `;
 
 const createAlbumHTML = (item, index) => `
-    <div>
+    <div class="card-item">
         <img src="${item.images[0]?.url || 'https://via.placeholder.com/100'}" alt="Album Cover">
-        <div>
-            <h4>${index + 1}. ${item.name}</h4>
-            <p>${item.artists[0]?.name || 'Artista desconocido'}</p>
-        </div>
+        <h4>${index + 1}. ${item.name}</h4>
+        <p>${item.artists[0]?.name || 'Artista desconocido'}</p>
     </div>
 `;
 

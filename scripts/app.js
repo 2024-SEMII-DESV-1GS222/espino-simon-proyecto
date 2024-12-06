@@ -1,16 +1,17 @@
+import { getAuthorizationUrl } from './login.js';
 import { APIController } from './apiController.js'
 import { sanitizeName } from './utils.js'
 import { printResultExplore } from './show.js'
 
 const htmlElements = {
     exploreForm: document.querySelector('#explore-form'),
-    exploreResult: document.querySelector('#explore-result')
+    exploreResult: document.querySelector('#explore-result'),
+    btnLogin: document.querySelector('#login')
 }
 
 const handlers = {
     submit: async (e) => {
         e.preventDefault();
-        console.log('escuchado');
         const formData = new FormData(e.target);
         const query = formData.get('query');
         const sanitizedName = sanitizeName(query);
@@ -28,16 +29,21 @@ const handlers = {
         htmlElements.exploreResult.innerHTML = '';
 
         const results = data[`${searchBy}s`].items;
-        console.log('Resultados encontrados:', results);
 
         const output = printResultExplore(results, searchBy);
         htmlElements.exploreResult.innerHTML = output;
-
+    },
+    login: () => {
+        const authUrl = getAuthorizationUrl();
+        window.location.href = authUrl;
     }
 }
 
 const bindEvents = () => {
-    htmlElements.exploreForm.addEventListener('submit', handlers.submit);
+    if (htmlElements.exploreForm)
+        htmlElements.exploreForm.addEventListener('submit', handlers.submit);
+    if (htmlElements.btnLogin)
+        htmlElements.btnLogin.addEventListener('click', handlers.login);
 }
 
 const init = () => {

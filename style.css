@@ -298,22 +298,34 @@ main>.grid__imgs {
 
 .explore__result {
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* gap: 20px; */
 }
 
-.explore__result>div {
+/* .explore__result>div {
     display: flex;
     gap: 20px;
     align-items: center;
     margin-bottom: 20px;
-}
+} */
 
 .explore__result img {
-    width: 100px;
+    width: 100%;
     border-radius: var(--border-radius);
     object-fit: cover;
 }
 
-table {
+.explore__result>div {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.explore__result>div:hover {
+    background-color: var(--color-white-mr);
+}
+
+/* table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -337,4 +349,4 @@ tbody tr:hover {
 
 tr td i:hover {
     cursor: pointer;
-}
+} */

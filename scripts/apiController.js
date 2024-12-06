@@ -15,7 +15,6 @@ const APIController = (function () {
 
         const data = await result.json();
         token = data.access_token;
-        console.log('Access Token: ', token);
     }
 
     (async () => {
@@ -23,7 +22,7 @@ const APIController = (function () {
     })();
 
     const search = async (query, type) => {
-        const result = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=${type}&limit=5`, {
+        const result = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=${type}`, {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -31,32 +30,9 @@ const APIController = (function () {
         return data;
     };
 
-    const getArtist = async (id) => {
-        const result = await fetch(`https://api.spotify.com/v1/artists/${id}`, {
-            method: 'GET',
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
-
-        const data = await result.json();
-        console.log(data);
-        return data;
-    }
-
-    const getSong = async (name) => {
-        const result = await fetch(`https://api.spotify.com/v1/tracks/${id}`, {
-            method: 'GET',
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
-
-        const data = await result.json();
-        console.log(data);
-        return data;
-    }
-
     return {
         getToken: () => token,
-        search,
-        getArtist
+        search
     };
 })();
 
